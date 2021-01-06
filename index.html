@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html lang = "en">
+<head>
+    <title>Midterm Mashup!</title>
+    <meta charset = "UTF-8" />
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+<body>
+
+    <h1 class="alert alert-primary">Hey there! Welcome to the song selector (or something like that)</h1>
+    <form>
+    <div class="row">
+        <div class="col">
+            <label>Enter a song</label>
+            <input type="text" name="track" id="sngName"></input>
+        </div>
+
+        <div class="col">
+            <label>Enter an artist</label>
+            <input type="text" name="artist" id="artName"></input>
+        </div>
+
+        <div class="col">
+            <input type="submit" class="btn btn-primary" name="search" id="srchTrack" onclick="getData()"></input>
+        </div>
+        
+    </div>
+    </form>
+    <div>
+        <table id="table" class="table">
+            <tr>
+                <th>Song</th>
+                <th>Artist</th>
+                <th>Listeners</th>
+                <th>Related Artists</th>
+                <th>Lyrics</th>
+            </tr>
+            <!-- Each song will be a new table row, with the data in each table data-->
+        </table>
+    </div>
+
+</body>
