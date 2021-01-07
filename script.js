@@ -80,3 +80,7 @@ function populateResult(song, artist, listeners, lyrics, similarArtists) {
 
 }
 
+let form = document.getElementById("search");
+function handleForm(event) { event.preventDefault(); }
+form.addEventListener('submit', handleForm);
+
