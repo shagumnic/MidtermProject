@@ -5,7 +5,7 @@ const TASTEDIVE_KEY = '397974-MusicSea-6R81OYVS';
 const LASTFM_KEY = "72a97fc3ab4b19094697eeb79311a8c2";
 
 var myAlbum = [];
-var categoryName = ['songData', 'artistData', 'listenersData', 'genreData', "jokeData"]
+var categoryName = ['songData', 'artistData', 'listenersData', 'genreData', "jokeData"];
 async function getData() {
     let songName = document.querySelector("#sngName").value;
     let artistName = document.querySelector("#artName").value;
@@ -77,7 +77,7 @@ function populateResult(song, artist, listeners, genre, joke) {
 
     let jokeData = document.createElement("td");
     jokeData.innerHTML = joke;
-    jokeData.setAttribute("id", "jokeData")
+    jokeData.setAttribute("id", "jokeData");
     newRow.appendChild(jokeData);
 
     table.appendChild(newRow);
@@ -99,8 +99,14 @@ function loadData() {
     let album = localStorage.getItem("local_album");
     album = album ? JSON.parse(album) : [];
     for (let data of album) {
-        populateResult(data[categoryName[0]], data[categoryName[1]], data[categoryName[2]], data[categoryName[3]], data[categoryName[4]])
+        populateResult(data[categoryName[0]], data[categoryName[1]], data[categoryName[2]], data[categoryName[3]], data[categoryName[4]]);
     }
+}
+
+function clearData() {
+    myAlbum = [];
+    let tableBody = document.getElementById("tableBody");
+    tableBody.innerHTML = "";
 }
 
 let form = document.getElementById("search");

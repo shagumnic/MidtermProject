@@ -21,14 +21,17 @@
             <input type="text" name="artist" id="artName"></input>
         </div>
 
-        <div class="col">
-            <input type="submit" class="btn btn-primary" name="search" vale="Let's go" id="srchTrack" onclick="getData()"></input>
+        <div class="col-2">
+            <button type="button" class="btn btn-primary" name="search" id="srchTrack" onclick="getData()">Get Data</input>
         </div>
-        <div class="col">
+        <div class="col-2">
             <button type="button" class="btn btn-danger" name="save" id="saveTrack" onclick="saveData()">Save Data</button>
         </div>
-        <div class="col">
+        <div class="col-2">
             <button type="button" class="btn btn-warning" name="load" id="loadTrack" onclick="loadData()">Load Data</button>
+        </div>
+        <div class="col-2">
+            <button type="button" class="btn btn-secondary" name="clear" id="clearTracks" onclick="clearData()">Clear Data</button>
         </div>
     </div>
     </form>
