@@ -45,7 +45,7 @@ async function getSimilarArts(artistName) {
 
 function populateResult(song, artist, listeners, lyrics, similarArtists) {
     let table = document.getElementById("tableBody");
-    let rowLength = document.getElementById("tableBody").length;
+    let rowLength = document.getElementById("tableBody").rows.length;
 
     let newRow = document.createElement("tr");
     newRow.setAttribute("id", `${rowLength}`);
