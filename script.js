@@ -37,7 +37,7 @@ async function getLyrics(songName, artistName) {
 
 async function getSimilarArts(artistName) {
     let url = `https://tastedive.com/api/similar?q=${artistName}&type=music&k=${TASTEDIVE_KEY}&limit=3`;
-    let result = await fetch(url).then(response => response.json());
+    let result = await fetch(url, {mode: 'no-cors'}).then(response => response.json());
     return result['Results'].map((artist) => artist['Name']);
 }
 
