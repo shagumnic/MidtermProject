@@ -23,7 +23,7 @@ async function getListeners(songName, artistName) {
     let url = `http://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=${LASTFM_KEY}&artist=${artistName}&track=${songName}&format=json`
     let result = await fetch(url).then(response => response.json());
     if ( result['error']) {
-        return `Last.fm errors: ${result['message']}`;
+        return `${result['message']}`;
     }
     return result['track']['listeners'];
 }
