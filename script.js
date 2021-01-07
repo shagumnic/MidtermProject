@@ -1,10 +1,11 @@
 'use strict';
+/* jshint esversion: 8 */
 
 const TASTEDIVE_KEY = '397974-MusicSea-6R81OYVS';
 const LASTFM_KEY = "72a97fc3ab4b19094697eeb79311a8c2";
 
 async function getData() {
-    let songName = document.querySelector("#sgName").value;
+    let songName = document.querySelector("#sngName").value;
     let artistName = document.querySelector("#artName").value;
     let listeners = await getListeners(songName, artistName);
     let lyrics = await getLyrics(songName, artistName);
@@ -15,7 +16,7 @@ async function getData() {
      similarArtists would be an empty array if there's no artist like
      that */
      //similarArtists should be an array of artist names if not empty
-    poppulateResult(listeners, lyrics, similarArtists);
+    populateResult(songName, artistName, listeners, lyrics, similarArtists);
 }
 
 async function getListeners(songName, artistName) {
@@ -34,7 +35,40 @@ async function getLyrics(songName, artistName) {
 }
 
 async function getSimilarArts(artistName) {
-    let url = `https://tastedive.com/api/similar?q=${artistName}&type=music&limit=3&k=${TASTEDIVE_KEY}`;
-    let result = await fetch(url, {mode: 'no-cors'}).then(response => response.json());
+    let url = `https://tastedive.com/api/similar?q=${artistName}&type=music&k=${TASTEDIVE_KEY}&limit=3`;
+    let result = await fetch(url).then(response => response.json());
     return result['Results'].map((artist) => artist['Name']);
 }
+
+function populateResult(song, artist, listeners, lyrics, similarArtists) {
+    let table = document.getElementById("tableBody");
+    let rowLength = document.getElementById("tableBody").length;
+
+    let newRow = document.createElement("tr");
+    newRow.setAttribute("id", `${rowLength}`);
+
+    let songData = document.createElement("td");
+    songData.innerHTML = song;
+    newRow.appendChild(songData);
+
+    let artistData = document.createElement("td");
+    artistData.innerHTML = artist;
+    newRow.appendChild(artistData);
+
+    let listenersData = document.createElement("td");
+    listenersData.innerHTML = listeners;
+    newRow.appendChild(listenersData);
+
+    let lyricsData = document.createElement("td");
+    lyricsData.innerHTML = lyrics;
+    newRow.appendChild(lyricsData);
+
+    let similarArtistsData = document.createElement("td");
+    similarArtistsData.innerHTML = similarArtists;
+    newRow.appendChild(similarArtistsData);
+
+    table.appendChild(newRow);
+
+
+}
+
