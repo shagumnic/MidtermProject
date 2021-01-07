@@ -5,7 +5,6 @@ const TASTEDIVE_KEY = '397974-MusicSea-6R81OYVS';
 const LASTFM_KEY = "72a97fc3ab4b19094697eeb79311a8c2";
 
 async function getData() {
-    console.log("hey");
     let songName = document.querySelector("#sngName").value;
     let artistName = document.querySelector("#artName").value;
     let listeners = await getListeners(songName, artistName);
@@ -37,7 +36,7 @@ async function getLyrics(songName, artistName) {
 
 async function getSimilarArts(artistName) {
     let url = `https://tastedive.com/api/similar?q=${artistName}&type=music&k=${TASTEDIVE_KEY}&limit=3`;
-    let result = await fetch(url, {mode: 'no-cors'}).then(response => response.json());
+    let result = await fetch(url).then(response => response.json());
     return result['Results'].map((artist) => artist['Name']);
 }
 
@@ -72,3 +71,4 @@ function populateResult(song, artist, listeners, lyrics, similarArtists) {
 
 
 }
+
