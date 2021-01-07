@@ -70,10 +70,7 @@ function populateResult(song, artist, listeners, lyrics, similarArtists) {
     newRow.appendChild(similarArtistsData);
 
     let lyricsData = document.createElement("td");
-    let lyricsDiv = document.createElement("div");
-    lyricsDiv.setAttribute("style", "height:120px;width:auto;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:scroll;");
-    lyricsDiv.innerHTML = lyrics;
-    lyricsData.appendChild(lyricsDiv);
+    lyricsData.innerHTML = lyrics;
     newRow.appendChild(lyricsData);
 
     table.appendChild(newRow);
