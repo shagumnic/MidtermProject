@@ -35,14 +35,17 @@ async function getLyrics(songName, artistName) {
 }
 
 async function getSimilarArts(artistName) {
-    let url = `https://tastedive.com/api/similar?q=${artistName}&type=music&k=${TASTEDIVE_KEY}&limit=3`;
-    let result = await fetch(url).then(response => response.json());
-    return result['Results'].map((artist) => artist['Name']);
+    //let url = `https://tastedive.com/api/similar?q=${artistName}&type=music&k=${TASTEDIVE_KEY}&limit=3`;
+    //let result = await fetch(url, { mode: 'no-cors'}).then(response => response.json());
+    //return result['Results'].map((artist) => artist['Name']);
+
+    return "test";
+
 }
 
 function populateResult(song, artist, listeners, lyrics, similarArtists) {
     let table = document.getElementById("tableBody");
-    let rowLength = document.getElementById("tableBody").length;
+    let rowLength = document.getElementById("tableBody").rows.length;
 
     let newRow = document.createElement("tr");
     newRow.setAttribute("id", `${rowLength}`);
@@ -59,13 +62,16 @@ function populateResult(song, artist, listeners, lyrics, similarArtists) {
     listenersData.innerHTML = listeners;
     newRow.appendChild(listenersData);
 
-    let lyricsData = document.createElement("td");
-    lyricsData.innerHTML = lyrics;
-    newRow.appendChild(lyricsData);
-
     let similarArtistsData = document.createElement("td");
     similarArtistsData.innerHTML = similarArtists;
     newRow.appendChild(similarArtistsData);
+
+    let lyricsData = document.createElement("td");
+    let lyricsDiv = document.createElement("div");
+    lyricsDiv.setAttribute("style", "height:120px;width:auto;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:scroll;");
+    lyricsDiv.innerHTML = lyrics;
+    lyricsData.appendChild(lyricsDiv);
+    newRow.appendChild(lyricsData);
 
     table.appendChild(newRow);
 
