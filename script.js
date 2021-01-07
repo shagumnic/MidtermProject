@@ -97,6 +97,8 @@ function saveData() {
 function loadData() {
     myAlbum = [];
     let album = localStorage.getItem("local_album");
+    let tableBody = document.getElementById("tableBody");
+    tableBody.innerHTML = "";
     album = album ? JSON.parse(album) : [];
     for (let data of album) {
         populateResult(data[categoryName[0]], data[categoryName[1]], data[categoryName[2]], data[categoryName[3]], data[categoryName[4]]);
