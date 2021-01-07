@@ -27,12 +27,6 @@
         <div class="col-2">
             <button type="button" class="btn btn-danger" name="save" id="saveTrack" onclick="saveData()">Save Data</button>
         </div>
-        <div class="col-2">
-            <button type="button" class="btn btn-warning" name="load" id="loadTrack" onclick="loadData()">Load Data</button>
-        </div>
-        <div class="col-2">
-            <button type="button" class="btn btn-secondary" name="clear" id="clearTracks" onclick="clearData()">Clear Data</button>
-        </div>
     </div>
     </form>
     <div>
@@ -50,6 +44,14 @@
             <!-- Each song will be a new table row, with the data in each table data-->
             </tbody>
         </table>
+    </div>
+    <div class="row">
+        <div class="col-1">
+            <button type="button" class="btn btn-warning" name="load" id="loadTrack" onclick="loadData()">Load Data</button>
+        </div>
+        <div class="col-1">
+            <button type="button" class="btn btn-secondary" name="clear" id="clearTracks" onclick="clearData()">Clear Data</button>
+        </div>
     </div>
 
     <script type="text/javascript" src="script.js?rnd=132"></script>

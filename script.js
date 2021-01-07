@@ -67,12 +67,12 @@ function populateResult(song, artist, listeners, genre, joke) {
 
     let listenersData = document.createElement("td");
     listenersData.innerHTML = listeners;
-    listenersData.setAttribute("id", "listenersData")
+    listenersData.setAttribute("id", "listenersData");
     newRow.appendChild(listenersData);
 
     let genreData = document.createElement("td");
     genreData.innerHTML = genre;
-    genreData.setAttribute("id", "genreData")
+    genreData.setAttribute("id", "genreData");
     newRow.appendChild(genreData);
 
     let jokeData = document.createElement("td");
@@ -82,7 +82,7 @@ function populateResult(song, artist, listeners, genre, joke) {
 
     table.appendChild(newRow);
 
-    let newData = {}
+    let newData = {};
     for (let i of categoryName) {
         newData[i] = document.querySelector(`tr[id='${rowLength}'] > td[id='${i}']`).innerHTML; 
     }
