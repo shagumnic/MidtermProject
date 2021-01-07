@@ -31,6 +31,7 @@ async function getListeners(songName, artistName) {
 async function getLyrics(songName, artistName) {
     let url = `https://api.lyrics.ovh/v1/${artistName}/${songName}`;
     let result = await fetch(url).then(response => response.json());
+    console.log(result)
     return result['lyrics'];
 }
 
@@ -38,8 +39,9 @@ async function getSimilarArts(artistName) {
     //let url = `https://tastedive.com/api/similar?q=${artistName}&type=music&k=${TASTEDIVE_KEY}&limit=3`;
     //let result = await fetch(url, { mode: 'no-cors'}).then(response => response.json());
     //return result['Results'].map((artist) => artist['Name']);
-
-    return "test";
+    let url = "https://binaryjazz.us/wp-json/genrenator/v1/genre/"
+    let result = await fetch(url).then(response => response.json());
+    return result;
 
 }
 
