@@ -29,10 +29,11 @@ async function getListeners(songName, artistName) {
 }
 
 async function getLyrics(songName, artistName) {
-    let url = `https://api.lyrics.ovh/v1/${artistName}/${songName}`;
+    let url = `http://api.icndb.com/jokes/random?firstName=${artistName}`;
     let result = await fetch(url).then(response => response.json());
-    console.log(result)
-    return result['lyrics'];
+    if (result['type'] === "success")
+        return result['value']['joke'];
+    return "There's no joke for this Artist";
 }
 
 async function getSimilarArts(artistName) {
